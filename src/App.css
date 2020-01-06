@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+.rdt_TableCol_Sortable span{
+  opacity: 1;
+  transform: rotate(0deg);
+}
+.custom-icon.rdt_TableCol_Sortable span{
+  transform: rotate(180deg);
+}

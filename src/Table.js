@@ -14,38 +14,17 @@ const Table = () =>{
     });
   },[])
 
-  const handleClick = (obj) => {
-    const data = [...tdata]
-    data.forEach((o)=>{
-      if(obj.id === o.id){
-        o.selected = true;
-      }else{
-        o.selected = false;
-      }
-    })
-    setTdata(data);
-  }
-
-  const conditionalRowStyles = [
-    {
-      when: row => row.selected,
-      style: {
-        backgroundColor: '#d7d7d7',
-      },
-    },
-    {
-      when: row => row.haveBold,
-      style: {
-        fontWeight: 'bold'
-      }
-    },
-    {
-      when: row => row.haveBorder,
-      style: {
-        borderBottom: '1px solid black'
-      }
+  const sorted = ( column, sortDirection, event )=> {
+    console.log(sortDirection)
+    // document.querySelectorAll('.rdt_TableCol_Sortable').forEach(el=>{
+    //   el.classList.remove('custom-icon');
+    // }) 
+    if(sortDirection === 'asc'){
+      document.getElementById(`column-${column.selector}`).classList.add('custom-icon');
+    }else{
+      document.getElementById(`column-${column.selector}`).classList.remove('custom-icon');
     }
-  ]
+  }
 
   const columns = [
     { name: "Name", selector: "name", sortable: true },
@@ -80,8 +59,7 @@ const Table = () =>{
       fixedHeaderScrollHeight="300px"
       highlightOnHover
       className='testing-component'
-      onRowClicked = {handleClick}
-      conditionalRowStyles={conditionalRowStyles}
+      onSort = {sorted}
     />
   );
 }
