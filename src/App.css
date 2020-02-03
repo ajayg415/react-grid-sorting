@@ -38,15 +38,6 @@
 }
 
 
-
-
-
-
-
-.rdt_TableCol_Sortable span{
-  opacity: 1;
-  transform: rotate(0deg);
-}
-.custom-icon.rdt_TableCol_Sortable span{
-  transform: rotate(180deg);
+.rdt_TableCol_Sortable svg{
+  opacity: 1 !important;
 }
